@@ -1,0 +1,47 @@
+<body>
+<script src="on_scroll_listener.js"></script>
+<script>
+	window.addEventListener('scrollState', function (e) {
+		document.getElementById('state').innerHTML = e.detail;
+	});
+</script>
+<div id="state" style="color: red; background-color: white; font-size: 60px; position: fixed;">IDLE</div>
+<p>Constants
+public static final int SCROLL_STATE_FLING
+
+Added in API level 1
+The user had previously been scrolling using touch and had performed a fling. The animation is now coasting to a stop
+
+Constant Value: 2 (0x00000002)
+public static final int SCROLL_STATE_IDLE
+
+Added in API level 1
+The view is not scrolling. Note navigating the list using the trackball counts as being in the idle state since these transitions are not animated.
+
+Constant Value: 0 (0x00000000)
+public static final int SCROLL_STATE_TOUCH_SCROLL
+
+Added in API level 1
+The user is scrolling using touch, and their finger is still on the screen
+
+Constant Value: 1 (0x00000001)
+Public Methods
+public abstract void onScroll (AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount)
+
+Added in API level 1
+Callback method to be invoked when the list or grid has been scrolled. This will be called after the scroll has completed
+
+Parameters
+view	The view whose scroll state is being reported
+firstVisibleItem	the index of the first visible cell (ignore if visibleItemCount == 0)
+visibleItemCount	the number of visible cells
+totalItemCount	the number of items in the list adaptor
+public abstract void onScrollStateChanged (AbsListView view, int scrollState)
+
+Added in API level 1
+Callback method to be invoked while the list view or grid view is being scrolled. If the view is being scrolled, this method will be called before the next frame of the scroll is rendered. In particular, it will be called before any calls to getView(int, View, ViewGroup).
+
+Parameters
+view	The view whose scroll state is being reported
+scrollState	The current scroll state. One of SCROLL_STATE_TOUCH_SCROLL or SCROLL_STATE_IDLE.</p>
+</body>
