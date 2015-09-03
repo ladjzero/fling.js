@@ -2,7 +2,7 @@
 // `debounce` is taken from `underscore`
 var debounce = function(func, wait, immediate) {
   var timeout, args, context, timestamp, result;
-  
+
   var later = function() {
     var last = Date.now() - timestamp;
     if (last < wait) {
@@ -15,7 +15,7 @@ var debounce = function(func, wait, immediate) {
       }
     }
   };
-  
+
   return function() {
     context = this;
         args = arguments;
@@ -28,7 +28,7 @@ var debounce = function(func, wait, immediate) {
       result = func.apply(context, args);
       context = args = null;
     }
-  
+
     return result;
   };
 };
@@ -38,27 +38,29 @@ var isOnScrolling = false,
   touchEventId;
 
 var touchHandler = function (e) {
+  console.log('touchType:' + e.type);
   switch (e.type) {
   case 'touchstart':
     isOnTouch = true;
-    isOnScrolling && dispatchScrollEvent('scroll');
+    isOnScrolling && dispatchScrollEvent('start');
     break;
   case 'touchend':
     isOnTouch = false;
-    dispatchScrollEvent(isOnScrolling ? 'fling' : 'scroll end');
+    dispatchScrollEvent(isOnScrolling ? 'fling' : 'end');
     break;
   }
 };
 
 var scrollHandler = function (e) {
+  console.log('scroll:' + e);
   switch(e) {
   case 'start':
     isOnScrolling = true;
-    dispatchScrollEvent('scroll');
+    dispatchScrollEvent('start');
     break;
   case 'end':
     isOnScrolling = false;
-    !isOnTouch && dispatchScrollEvent('scroll end');
+    !isOnTouch && dispatchScrollEvent('end');
   }
 }
 
@@ -71,7 +73,8 @@ var scrollHandler2 = debounce(function () {
 }, 150);
 
 var dispatchScrollEvent = function (state) {
-  window.dispatchEvent(new CustomEvent('scrollState', {detail: state}));
+  console.log('scrollState:' + state);
+  window.onScrollStateChange && window.onScrollStateChange(state);
 }
 
 window.addEventListener('touchstart', touchHandler);

@@ -1,9 +1,13 @@
+<!DOCTYPE html>
 <body>
 <script src="on_scroll_listener.js"></script>
 <script>
-	window.addEventListener('scrollState', function (e) {
-		document.getElementById('state').innerHTML = e.detail;
-	});
+	var stateEl;
+
+	window.onScrollStateChange = function (state) {
+		!stateEl && (stateEl = document.getElementById('state'));
+		stateEl.innerHTML = state;
+	};
 </script>
 <div id="state" style="color: red; background-color: white; font-size: 60px; position: fixed;">IDLE</div>
 <p>Constants
