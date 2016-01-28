@@ -1,0 +1,24 @@
+{
+  "name": "webview.on_scroll_listener",
+  "version": "1.0.0",
+  "description": "a better scroll listener for webview",
+  "main": "on_scroll_listener.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ladjzero/webview.on_scroll_listener.git"
+  },
+  "keywords": [
+    "webview",
+    "scroll",
+    "fling"
+  ],
+  "author": "ladjzero@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ladjzero/webview.on_scroll_listener/issues"
+  },
+  "homepage": "https://github.com/ladjzero/webview.on_scroll_listener#readme"
+}
