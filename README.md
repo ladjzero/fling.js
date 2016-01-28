@@ -1,8 +1,8 @@
-# webview.on_scroll_listener
-Inject this javascript to your webview and it will report scroll state of the webview.
+# fling.js
+Inject this javascript to your webview and it reports scroll state of the webview, including `start`, `end` and `fling`.
 
 ## Demo
-http://ladjzero.me/example/on_scroll_listener
+http://ladjzero.me/example/fling.js
 
 Or scan the QR code
 
